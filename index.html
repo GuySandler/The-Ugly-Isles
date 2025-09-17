@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>The Ugly Isles</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="body2">
+		<p style="display:inline-block;">Shells spent so far:<p id="spent" style="display:inline-block;">0</p></p>
+		<h1 style="text-align: center;">Welcome to the Ugly Isles</h1>
+		<h2>We need more tourism <img src="sadge.png" alt="Sadge" id="sadge"></h2>
+		<a href="TBD">Continue to The Shellfish Kingdom (long swim)</a>
+		<a href="TBD">Continue to the Ghost Rave (bring earplugs)</a>
+		<a href="TBD">Go to the Shrubs of Mystery (bring flashlight)</a>
+
+		<h1>We hope you enjoyed your Ugly Isles experience!</h1>
+		<h2>PLEASE buy something at our gift shop</h2>
+		<div>
+			<img src="letter.png" alt="letter" style="width:100px;">
+			<button onclick="buyText()">Buy more visible text (15 <img src="shell.avif" alt="shells" style="width:30px;">)</button>
+		</div>
+	</div>
+	<script>
+		let shellsSpent = 0;
+		let bought = [];
+		function updateSpent() {
+			document.getElementById("spent").innerText = shellsSpent;
+		}
+		function buyText() {
+			if (bought.includes("text")) {
+				alert("We ran out :(");
+				return;
+			}
+			document.getElementById("body2").style.fontFamily = "comicsans";
+			const textElements = document.querySelectorAll("h1, h2, a, button, p");
+			textElements.forEach(element => {
+				element.style.textShadow = "2px 2px 0 yellow, -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow";
+			});
+			shellsSpent += 15;
+			updateSpent();
+			bought.push("text");
+		}
+
+	</script>
+</body>
+</html>

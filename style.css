@@ -1,0 +1,24 @@
+/* import local fonts */
+@font-face {
+	font-family: "papayrus";
+	src: url("papyrus/papyrus.ttf") format("truetype");
+}
+@font-face {
+	font-family: "comicsans";
+	src: url("comicsans/Ldfcomicsans-jj7l.ttf") format("truetype");
+}
+body {
+	margin: 0;
+}
+#body2 {
+	font-family: "papayrus", sans-serif;
+	margin: 0;
+	padding: 10px;
+	background-image: url("uglyisles.png");
+	width:90vw;
+	height:100vh;
+	background-color:red;
+}
+#sadge {
+	width:100px;
+}
