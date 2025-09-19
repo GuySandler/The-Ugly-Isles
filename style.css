@@ -15,10 +15,21 @@ body {
 	margin: 0;
 	padding: 10px;
 	background-image: url("uglyisles.png");
-	width:90vw;
-	height:100vh;
+	width:1500px;
+	height:100%;
 	background-color:red;
 }
 #sadge {
 	width:100px;
+}
+.href {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: #1045a3;
+	text-decoration: underline;
+	font-size: 1.2em;
+}
+.href:hover {
+	color: #0b2a6f;
 }
