@@ -24,15 +24,19 @@
 		</div>
 		<div>
 			<img src="magnet.png" alt="magnet" style="width:100px;">
-			<button onclick="buyMagnet()">Buy our car magnet (24.9 <img src="doubloon.svg" alt="shells" style="width:30px;">)</button>
+			<button onclick="buy('magnet', 25, 'We ran out of magnets, shipping is expensive here :(')">Buy our car magnet (24.9 <img src="doubloon.svg" alt="shells" style="width:30px;">)</button>
 		</div>
 		<div>
 			<img src="ship.svg" alt="ship" style="width:100px;">
-			<button onclick="buyShipTicket()">Ticket to ship (54.99 <img src="doubloon.svg" alt="shells" style="width:30px;">)</button>
+			<button onclick="buy('ship', 55, 'We only have one ship (it\'s totally not stolen from the high seas)')">Ticket to ship (54.99 <img src="doubloon.svg" alt="shells" style="width:30px;">)</button>
 		</div>
 		<div>
 			<img src="flashlight.avif" alt="flashlight" style="width:100px;">
-			<button onclick="buyFlashlight()">Flashlight (image to scale) (41.999 <img src="shell.avif" alt="shells" style="width:30px;">)</button>
+			<button onclick="buy('flashlight', 42, 'HQ doesn\'t give me a light source and I\'m afraid of the dark')">Flashlight (image to scale) (41.999 <img src="shell.avif" alt="shells" style="width:30px;">)</button>
+		</div>
+		<div>
+			<img src="earplugs.webp" alt="earplugs" style="width:100px;">
+			<button onclick="buy('earplugs', 10, 'I ran out, hand-made small batches')">Earplugs (I made them myself) (99999 / 10000 <img src="bitcoin.jpeg" alt="shells" style="width:30px;">)</button>
 		</div>
 	</div>
 	<script>
@@ -55,37 +59,42 @@
 			updateSpent();
 			bought.push("text");
 		}
-		function buyMagnet() {
-			if (bought.includes("magnet")) {
-				alert("We ran out of magnets, shipping is expensive here :(");
+		function buy(item, cost, outofmessage) {
+			if (bought.includes(item)) {
+				alert(outofmessage);
 				return;
 			}
-			alert("You got a magnet! Put it on your car to show off your support for the Ugly Isles!");
-			shellsSpent += 25;
+			shellsSpent += cost;
 			updateSpent();
-			bought.push("magnet");
-		}
-		function buyShipTicket() {
-			if (bought.includes("ship")) {
-				alert("We only have one ship (it's totally not stolen from the high seas)")
-			}
-			shellsSpent += 55;
-			updateSpent();
-			bought.push("ship");
-		}
-		function buyFlashlight() {
-			if (bought.includes("flashlight")) {
-				alert("HQ doesn't give me a light source and I'm afraid of the dark")
-			}
-			shellsSpent += 42;
-			updateSpent();
-			bought.push("flashlight");
+			bought.push(item);
 		}
 		// gotos
 		function goToShellfish() {
 			if (!bought.includes("ship")) {
 				if (confirm("It's a long swim, are you sure you don't want to buy our ship ticket? (we don't know how to sail)")) {
 					if (confirm("Are you REALLY sure? you should give us more money")) {
+						window.location.href = "TBD";
+					}
+				}
+				return;
+			}
+			window.location.href = "TBD";
+		}
+		function goToGhostRave() {
+			if (!bought.includes("earplugs")) {
+				if (confirm("9/10 Scientists recommend ear plugs because loud music can damage your hearing, you should buy them from our store!")) {
+					if (confirm("Are you REALLY sure? I want to be able to make a living :(")) {
+						window.location.href = "TBD";
+					}
+				}
+				return;
+			}
+			window.location.href = "TBD";
+		}
+		function goToShrubs() {
+			if (!bought.includes("flashlight")) {
+				if (confirm("The shrubs are very dark, you should buy a flashlight from our store!")) {
+					if (confirm("Are you REALLY sure? .001% goes to nature conservation on this island!")) {
 						window.location.href = "TBD";
 					}
 				}
