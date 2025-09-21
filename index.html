@@ -8,7 +8,7 @@
 </head>
 <body>
 	<div id="body2">
-		<progress value="70" max="100" id="retirement"></progress>
+		<progress value="0" max="1000000" id="retirement"></progress>
 		<p id="retirement-text">progress to my retirement: 0/1000000 monies</p>
 
 		<p style="display:inline-block;">Shells spent so far:<p id="spent" style="display:inline-block;">0</p></p>
@@ -69,6 +69,7 @@
 			});
 			shellsSpent += 35;
 			updateSpent();
+			addmoney(35);
 			bought.push("text");
 		}
 		function buy(item, cost, outofmessage) {
@@ -77,6 +78,7 @@
 				return;
 			}
 			shellsSpent += cost;
+			addmoney(cost);
 			updateSpent();
 			bought.push(item);
 		}
@@ -113,6 +115,22 @@
 				return;
 			}
 			window.location.href = "TBD";
+		}
+		let retirementProgress = 0;
+		function updatebar() {
+			fetch("https://guy.hackclub.app/uglyisles/data").then(response => response.json()).then(data => {
+				retirementProgress = data.money;
+				document.getElementById("retirement").value = retirementProgress;
+				document.getElementById("retirement-text").innerText = `progress to my retirement: ${retirementProgress}/1000000 monies`;
+			});
+		}
+		updatebar();
+		function addmoney(amount) {
+			fetch(`https://guy.hackclub.app/uglyisles/addmoney?money=${amount}`, {
+				method: 'POST'
+			}).then(() => {
+				updatebar();
+			});
 		}
 	</script>
 </body>
