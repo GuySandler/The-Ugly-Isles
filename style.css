@@ -33,3 +33,8 @@ body {
 .href:hover {
 	color: #0b2a6f;
 }
+
+#retirement {
+	width:100%;
+	height:30px;
+}
