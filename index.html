@@ -71,6 +71,27 @@
 	<script>
 		let shellsSpent = 0;
 		let bought = [];
+
+		function storeBetterText() {
+			if (localStorage.getItem("hasBetterText")) {
+				document.getElementById("body2").style.fontFamily = "comicsans";
+				const textElements = document.querySelectorAll("h1, h2, a, button, p");
+				textElements.forEach(element => {
+					element.style.textShadow = "2px 2px 0 yellow, -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow";
+				});
+			}
+			else {
+				localStorage.setItem("hasBetterText", "true");
+			}
+		}
+		if (localStorage.getItem("hasBetterText")) {
+			document.getElementById("body2").style.fontFamily = "comicsans";
+			const textElements = document.querySelectorAll("h1, h2, a, button, p");
+			textElements.forEach(element => {
+				element.style.textShadow = "2px 2px 0 yellow, -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow";
+			});
+		}
+
 		function updateSpent() {
 			document.getElementById("spent").innerText = shellsSpent;
 		}
@@ -88,6 +109,7 @@
 			updateSpent();
 			addmoney(35);
 			bought.push("text");
+			storeBetterText();
 		}
 		function buy(item, cost, outofmessage) {
 			if (bought.includes(item)) {
@@ -126,12 +148,12 @@
 			if (!bought.includes("flashlight")) {
 				if (confirm("The shrubs are very dark, you should buy a flashlight from our store!")) {
 					if (confirm("Are you REALLY sure? .001% goes to nature conservation on this island!")) {
-						openTipMenu("TBD");
+						openTipMenu("https://isle.a.hackclub.dev/scenes/91");
 					}
 				}
 				return;
 			}
-			openTipMenu("TBD");
+			openTipMenu("https://isle.a.hackclub.dev/scenes/91");
 		}
 		let retirementProgress = 0;
 		function updatebar() {

@@ -31,4 +31,13 @@
 		<h5>(Don't tell them this, but I don't think they know what they are doing)</h5>
 	</div>
 </body>
+<script>
+	if (localStorage.getItem("hasBetterText")) {
+		document.getElementById("body2").style.fontFamily = "comicsans";
+		const textElements = document.querySelectorAll("h1, h2, a, button, p");
+		textElements.forEach(element => {
+			element.style.textShadow = "2px 2px 0 yellow, -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow";
+		});
+	}
+</script>
 </html>

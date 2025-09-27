@@ -21,13 +21,13 @@
 			</video>
 			<div id="cardtext">
 				<h1>Our workers make sure everything is safe</h1>
-				<p style="font-size: 7px;">terms and conditions apply. there is no guarantee of safety. by being here you agree to our terms and conditions</p>
+				<a href="/terms.html" style="font-size: 7px;">terms and conditions apply. there is no guarantee of safety. by being here you agree to our terms and conditions</a>
 			</div>
 		</div>
 		<div id="item">
 			<div id="cardtext">
 				<h1>Go on our motorcycle tour</h1>
-				<p">no these don't (fly TODO EASTER EGG)</p>
+				<p>no these don't fly</p>
 			</div>
 			<video width="320" height="240" autoplay loop muted>
 				<source src="./videos/cycletour.mp4" type="video/mp4">
@@ -62,4 +62,13 @@
 		</div>
 	</div>
 </body>
+<script>
+	if (localStorage.getItem("hasBetterText")) {
+		document.getElementById("body2").style.fontFamily = "comicsans";
+		const textElements = document.querySelectorAll("h1, h2, a, button, p");
+		textElements.forEach(element => {
+			element.style.textShadow = "2px 2px 0 yellow, -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow";
+		});
+	}
+</script>
 </html>
